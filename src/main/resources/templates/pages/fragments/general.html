@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+<meta charset="UTF-8" />
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+    <div th:fragment="header">
+        <h1>Thymeleaf Fragments sample</h1>
+    </div>
+    <div th:fragment="topnav" class="topnav">
+    	<ul>
+    		<li><a th:href="@{/index}">Accueil</a></li>
+    		<li><a th:href="@{/ajoutProduit}">Ajouter un produit</a></li>
+    		<li><a th:href="@{/listeProduit}">Liste des produits</a></li>
+    		<li><a th:href="@{/script}">Script</a></li>
+    		<li><a th:href="@{/react}">React</a></li>
+    	</ul>
+    </div>
+    <footer class="footer" th:fragment="footer">
+    	<a th:href="@{http://www.spring.io}">Spring</a>
+        <a th:href="@{http://www.thymeleaf.org}">Thymeleaf</a>
+    </footer>
+</body>
+</html>

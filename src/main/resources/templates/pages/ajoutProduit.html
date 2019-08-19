@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="/style.css" th:href="@{/style.css}" />
+<title>Ajout Produit</title>
+</head>
+<body>
+	<div th:replace="pages/fragments/general :: topnav"></div>
+	<div class="content">
+		<h1>Ajouter un produit :</h1>
+		<form action="#" th:action="@{/ajoutProduit}" th:object="${produit}"
+			method="post">
+			<label for="nom">Nom : </label><input type="text" th:field="*{nom}" /><span class="error" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span><br />
+			<label for="quantite">Quantite : </label><input type="text" th:field="*{quantite}" /><span class="error" th:if="${#fields.hasErrors('quantite')}" th:errors="*{quantite}"></span><br/>
+			<input class="button" type="submit" value="Envoyer" /> <input class="button" type="reset" value="Reset" />
+		</form>
+	</div>
+	<div th:if="${resultat}" ><a>Succès lors de l'ajout du produit</a></div>
+	<footer th:replace="pages/fragments/general :: footer" />
+</body>
+</html>

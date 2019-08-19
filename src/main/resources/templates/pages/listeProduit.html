@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="/style.css" th:href="@{/style.css}" />
+<title>Ajout Produit</title>
+</head>
+<body>
+	<div th:replace="pages/fragments/general :: topnav"></div>
+	<div class="content">
+		<table>
+			<tr>
+				<th>Nom</th>
+				<th>Quantité</th>
+			</tr>
+			<tr th:each="produit : ${produits}">
+				<td th:text="${produit.nom}"></td>
+				<td th:text="${produit.quantite}"></td>
+			</tr>
+		</table>
+	</div>
+	<div th:if="${nbPages.size() > 0}" class="pagination">
+		<a th:if="${page > 1}" th:href="@{/listeProduit(page=${page-1})}" >&laquo;</a>
+		<a th:each="numPage : ${nbPages}" th:href="@{/listeProduit(page=${numPage.key})}" th:text=" ${numPage.key}" th:class="${numPage.key == page}? 'active' : ''" 
+		th:if="${numPage.key < (page+3) and numPage.key > (page-2)}"></a>
+		<a th:if="${page < nbPages.size()}" th:href="@{/listeProduit(page=${page+1})}" >&raquo;</a>
+	</div>
+	<footer th:replace="pages/fragments/general :: footer" />
+</body>
+</html>

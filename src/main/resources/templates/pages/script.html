@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/style.css" th:href="@{/style.css}" />
+<title>Ici on s'amuse avec des scripts</title>
+
+</head>
+<body>
+	<div th:replace="pages/fragments/general :: topnav"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+		<script>
+		
+		$(document).ready(function(){
+			var lat = 0;
+			var lon = 0;
+			if ("geolocation" in navigator) {
+  				/* géolocalisation possible */
+  				navigator.geolocation.getCurrentPosition(function(position){
+  					lat = position.coords.latitude;
+  					lon = position.coords.longitude;
+  					
+  				});
+			} else {
+  				alert("Le service de géolocalisation n'est pas disponible sur votre ordinateur.");
+			}
+			$("#button").click(function(){
+				alert("api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon="+ lon + "&APPID=01b9c31460cf46f75c767bd8e58f84cd");
+				$.get("http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon="+ lon + "&APPID=01b9c31460cf46f75c767bd8e58f84cd",function(data, status, xhr){
+					console.log(status);
+					console.log(typeof data);
+					for(let key in data){
+						console.log(data[key]);
+					}
+				});
+			});
+		});
+		</script>
+	<div class="content">
+		<p>Test de javascipt</p>
+		<button id="button">Test Ajax Api etc</button>
+		<div id="lat"></div>
+		<div id ="long"></div>
+		
+	</div>
+	<footer th:replace="pages/fragments/general :: footer" />
+</body>
+</html>

@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+:root {
+	--main-color-topnav: RoyalBlue;
+	--main-color-background: GhostWhite;
+	--color-button: RoyalBlue;
+	--border-radius: 4px;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the top navigation bar */
+.topnav {
+	overflow: hidden;
+	background-color: var(--main-color-topnav);
+	position: sticky;
+	top: 0;
+}
+
+/* Style the topnav links */
+.topnav ul {
+	float: top;
+	margin: 14px 16px;
+	padding: 14px 16px; 
+	list-style-type : none;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.topnav a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+	background-color: white;
+	color: var(--main-color-topnav);
+}
+
+/* Style the content */
+.content {
+	background-color: var(--main-color-background);
+	padding: 10px;
+	text-align: center;
+}
+
+.content>* {
+	margin: 14px 16px;
+	align-self: center;
+}
+
+.content form{
+	text-align: left;
+	margin-left: 25%;
+}
+
+.content table{
+	display: inline-block;
+	border-collapse: collapse;
+	width: 70%;
+}
+
+.content label{
+	text-align: left;
+	padding: 16px 8px 16px 8px;
+	width: 15%;
+	display: inline-block;
+}
+
+input[type=text]{
+	width: 35%;
+	border: 2px solid gray;
+	border-radius: var(--border-radius);
+}
+
+.button{
+	margin: 16px 8px 16px 8px;
+	display: inline;
+	background-color: var(--color-button);
+	color: white;
+	padding: 16px 18px;
+	border: none;
+	border-radius: var(--border-radius);
+}
+
+.button:hover{
+	background-color: white;
+	color: var(--main-color-topnav);
+	border-radius: var(--border-radius);
+}
+
+/* Style the table */
+tr, th, td{
+	width: 1%;
+	padding: 15px;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+tr th{
+	background-color: var(--main-color-topnav);
+	color: white;
+}
+
+tr, td{
+	border-bottom: 2px solid SteelBlue;
+}
+
+
+tr:nth-child(even){
+	background-color: LightSteelBlue;
+}
+
+tr:hover{
+	background-color: var(--main-color-topnav);
+	color: white;
+}
+
+/*Style the pagination*/
+.pagination{
+	overflow: hidden;
+	background-color: var(--main-color-background);
+	text-align: center;
+	padding: 16px 16px 16px 16px;
+}
+
+.pagination a{
+	border: 2px solid white;
+	border-radius: 4px;
+	text-align: center;
+	color: black;
+	padding: 8px 16px 8px 16px;
+	margin: 4px;
+	text-decoration: none;
+}
+
+.pagination a.active{
+	background-color: var(--main-color-topnav);
+	color: white;
+}
+
+span.error {
+	margin: 0%;
+	padding: 0px 0px 0px 8px;
+	color: red;
+}
+
+/* Style the footer */
+.footer {
+	overflow: hidden;
+	background-color: var(--main-color-topnav);
+	padding: 14px 16px;
+	border: 14px 16px;
+}
+
+.footer a {
+	text-decoration: none;
+	float: right;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 0px 14px;
+}
